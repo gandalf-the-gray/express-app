@@ -3,7 +3,7 @@ import { formatDate } from "./utils.js";
 
 const app = express();
 
-app.use((_, _, next) => {
+app.use((_, __, next) => {
     console.log(`${formatDate(new Date())}: IP: ${req.ip}`);
     next();
 })
