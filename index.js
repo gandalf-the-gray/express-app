@@ -11,3 +11,7 @@ app.use((_, __, next) => {
 app.get("/", (req, res) => {
     res.status(200).send(req.ip);
 });
+
+app.listen(3000, (err) => {
+    console.log(err ? err : `listening to port ${3000}`);
+})
