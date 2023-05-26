@@ -1,17 +1,5 @@
-import express from "express";
-import { formatDate } from "./utils.js";
-
-const app = express();
-
-app.use((req, _, next) => {
-    console.log(`${formatDate(new Date())} => IP is ${req.ip}`);
-    next();
-})
-
-app.get("/", (req, res) => {
-    res.status(200).send(req.ip);
+import http from "http";
+const server = http.createServer((req, res) => { res.end('It works') });
+server.listen(9000, '0.0.0.0', (err) => {
+    console.log(err ? err : `Listening to ${9000}`);
 });
-
-app.listen(3000, (err) => {
-    console.log(err ? err : `listening to port ${3000}`);
-})
